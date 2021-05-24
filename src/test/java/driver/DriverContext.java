@@ -1,14 +1,10 @@
 package driver;
 
-import constants.Constants;
 import constants.OS;
 
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
-import org.openqa.selenium.Dimension;
 
-import java.util.concurrent.TimeUnit;
 
 public class DriverContext {
     public static DriverManager driverManager = new DriverManager();
@@ -42,19 +38,5 @@ public class DriverContext {
         driverManager.getDriver().quit();
     }
 
-    public static void setDriverTimeout(Integer tiempo) {
-        driverManager.getDriver().manage().timeouts().implicitlyWait(tiempo, TimeUnit.SECONDS);
-    }
 
-    public static void setDriverDefaultTimeout() {
-        setDriverTimeout(Constants.DRIVER_DEFAULT_TIMEOUT);
-    }
-
-    public static Dimension getSreenSize() {
-        return driverManager.getScreenSize();
-    }
-
-    public static final String getAndroidPackageId() {
-        return ((AndroidDriver) driverManager.getDriver()).getCurrentPackage();
-    }
 }

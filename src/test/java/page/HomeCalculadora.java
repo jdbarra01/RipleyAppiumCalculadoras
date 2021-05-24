@@ -104,9 +104,7 @@ public class HomeCalculadora {
         inputDos.click();
         inputCero.click();
         inputIgual.click();
-
         saveScreenshot("Page Teclado: Operaciones basicas aritmética suma", driver);
-
     }
 
 
@@ -155,8 +153,8 @@ public class HomeCalculadora {
         inputCero.click();
         inputIgual.click();
         saveScreenshot("Page Teclado: Operaciones basicas aritmética division", driver);
-
     }
+
     @Step("Page Teclado: Operaciones no valida")
     public void divicionNoValida() {
         int nro;
@@ -239,7 +237,6 @@ public class HomeCalculadora {
         visualizarObjeto(inputMultiplica, tiempo);
         visualizarObjeto(inputDivide, tiempo);
         visualizarObjeto(inputIgual, tiempo);
-
-
     }
+
 }

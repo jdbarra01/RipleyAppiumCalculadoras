@@ -21,10 +21,7 @@ import java.util.concurrent.TimeUnit;
 class DriverManager {
     private DesiredCapabilities capabilities = new DesiredCapabilities();
     private AppiumDriver driver;
-    private WebDriver webDriver;
     private File root = new File("apps");
-    private File ruta = new File("/Users/josebarra/Downloads/apps");
-
 
     protected void resolveDriver(OS os, String udId, String puerto, String fileName, Boolean rootMac) {
         resolveDriver(os, udId, "", false, "http://10.252.152.193:" + puerto + "/wd/hub", fileName, false, rootMac, "");
@@ -35,18 +32,18 @@ class DriverManager {
     }
 
     protected void resolveDriver(OS os, String udId, String deviceName, Boolean emulador, String fileName, String versionDispositivo) {
-        resolveDriver(os, udId, deviceName, emulador, "http://127.0.0.1:4723/wd/hub", fileName, false,   false, versionDispositivo);
+        resolveDriver(os, udId, deviceName, emulador, "http://127.0.0.1:4723/wd/hub", fileName, false, false, versionDispositivo);
     }
 
     protected void resolveDriver(OS os, String udId, String deviceName, Boolean emulador, String fileName, Boolean continueFlow) {
-        resolveDriver(os, udId, deviceName, emulador, "http://127.0.0.1:4723/wd/hub", fileName, continueFlow,   false, "");
+        resolveDriver(os, udId, deviceName, emulador, "http://127.0.0.1:4723/wd/hub", fileName, continueFlow, false, "");
     }
 
     protected void resolveDriver(OS os, String udId, String deviceName, String fileName) {
         resolveDriver(os, udId, deviceName, false, "http://172.16.98.145:5355/wd/hub", fileName, false, false, "");
     }
 
-    protected void resolveDriver(OS os, String udId, String deviceName, Boolean emulador, String urlAppiumServer, String nameFile, Boolean continueFlow,  Boolean rootMac, String versionDispositivo) {
+    protected void resolveDriver(OS os, String udId, String deviceName, Boolean emulador, String urlAppiumServer, String nameFile, Boolean continueFlow, Boolean rootMac, String versionDispositivo) {
         URL server = null;
         try {
             server = new URL(urlAppiumServer);
@@ -59,9 +56,9 @@ class DriverManager {
                 eliminarAPK();
                 deviceName = "Device Android";
                 this.capabilities.setCapability("fullReset", true);
-               app = new File(ruta, nameFile + ".apk");
+                app = new File(root, nameFile + ".apk");
             } else {
-               app = new File(root, nameFile + ".apk");
+                app = new File(root, nameFile + ".apk");
             }
             capabilities.setCapability("deviceName", deviceName);
             if (!emulador) {
@@ -70,7 +67,6 @@ class DriverManager {
 
             if (continueFlow) {
                 this.capabilities.setCapability("noReset", true);
-                //this.capabilities.setCapability("autoLaunch", false);
             } else {
                 this.capabilities.setCapability("noReset", false);
             }
@@ -91,7 +87,7 @@ class DriverManager {
                 }
                 capabilities.setCapability(MobileCapabilityType.UDID, udId);
             } else {
-                app = new File(ruta, nameFile + ".app");
+                app = new File(root, nameFile + ".app");
                 capabilities.setCapability("platformVersion", "14.4");
                 capabilities.setCapability("bundleId", " Calculadora  com.apple.calculator");
             }
@@ -114,14 +110,6 @@ class DriverManager {
 
     protected AppiumDriver getDriver() {
         return driver;
-    }
-
-    protected void setDriver(AppiumDriver driver) {
-        this.driver = driver;
-    }
-
-    protected Dimension getScreenSize() {
-        return driver.manage().window().getSize();
     }
 
     private void eliminarAPK() {
