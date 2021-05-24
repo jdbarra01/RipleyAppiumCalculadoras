@@ -1,7 +1,7 @@
 # RipleyAppiumCalculadoras
 Prueba Appium calculadoras samsung android y calculadora iOS
 
-Proyecto realizado en appium, con TestNG, libreri de reporte utilizada Allure report, gestor de dependencias gradle
+Proyecto realizado en appium, con TestNG, libreria de reporte utilizada Allure report, gestor de dependencias gradle
 
 Características 
 Las pruebas para la aplicación móvil Native Android Calculator están escritas en Java usando Appium.
