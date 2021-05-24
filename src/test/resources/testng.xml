@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/josebarra/Documents/AppiumProyectos/AppiumTest/Ripley">
+        <classes>
+            <class name="testSuites.android.Test_Android">
+                <methods>
+                    <include name="PA01_ANDROID"/>
+                    <include name="PA02_ANDROID"/>
+                    <include name="PA03_ANDROID"/>
+                    <include name="PA04_ANDROID"/>
+                    <include name="PA05_ANDROID"/>
+                    <include name="PA06_ANDROID"/>
+                </methods>
+            </class>
+            <class name="testSuites.ios.Test_iOS">
+                <methods>
+                    <include name="PA01_IOS"/>
+                    <include name="PA02_IOS"/>
+                    <include name="PA03_IOS"/>
+                    <include name="PA04_IOS"/>
+                    <include name="PA05_IOS"/>
+                    <include name="PA06_IOS"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

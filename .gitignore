@@ -1,0 +1,26 @@
+#Allure Files
+/allure-report
+/allure-results
+
+#IDEA Files
+/.idea
+/out
+/.idea/workspace.xml
+
+#Proyect Files
+/.gradle
+/gradle
+/bin
+
+#Ripley Files
+apps/
+*.iml
+*.apk
+*.ipa
+
+#Others Files
+/build
+*.zip
+*.pdf
+/tmp
+/.DS_Store

@@ -1,0 +1,46 @@
+plugins {
+    id 'java'
+    id("io.qameta.allure") version "2.6.0"
+}
+
+group 'Ripley'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+allure {
+    autoconfigure = true
+    aspectjweaver = true
+    version = '2.13.1'
+}
+
+repositories {
+    maven { url "http://repo.maven.apache.org/maven2" }
+    mavenCentral()
+    jcenter()
+
+}
+
+compileTestJava {
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+    options.encoding = 'UTF-8'
+}
+
+dependencies {
+    implementation group: 'org.w3c', name: 'dom', version: '2.3.0-jaxb-1.0.6'
+    compile group: 'io.appium', name: 'java-client', version: '7.0.0'
+    testCompile group: 'org.testng', name: 'testng', version: '7.0.0'
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-api', version: '3.141.59'
+    compile group: 'commons-io', name: 'commons-io', version: '2.6'
+    compile group: 'io.qameta.allure', name: 'allure-testng', version: '2.13.5'
+}
+
+test {
+    useTestNG() {
+        useDefaultListeners = true
+        suites 'src/test/resources/testng.xml'
+    }
+}
